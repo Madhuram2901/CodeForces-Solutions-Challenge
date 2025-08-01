@@ -19,54 +19,12 @@ This repository chronicles my adventure through competitive programming, where I
 
 > 💡 **Goal**: Master algorithms, data structures, and problem-solving patterns while building a comprehensive solution library.
 
----
 
-## 📊 Current Progress
-
-<div align="center">
-
-### 🏆 Statistics Dashboard
-
-| Metric | Count | Progress |
-|--------|-------|----------|
-| **Total Problems** | 1 | 🟩⬜⬜⬜⬜ |
-| **800-Rated** | 1 | ✅ |
-| **900-Rated** | 0 | ⏳ |
-| **1000-Rated** | 0 | ⏳ |
-| **Current Streak** | 1 day | 🔥 |
-
-</div>
-
----
-
-## 🗂️ Repository Structure
-
-```
-📁 CodeForces-Solutions-Challenge/
-├── 📂 800_Rated/
-│   └── 4A_Watermelon.cpp
-├── 📄 update_readme.py
-└── 📄 README.md
-```
-
----
-
-## 📚 Problem Tracker
-
-### 🟢 800-Rated Problems
-
-| # | Problem | Difficulty | Status | Solution | Tags |
-|---|---------|------------|--------|----------|------|
-| 1 | [4A - Watermelon](https://codeforces.com/problemset/problem/4/A) | 800 | ✅ Solved | [📝 Code](./800_Rated/4A_Watermelon.cpp) | `math` `brute force` |
-
-*More problems coming soon...*
-
----
 
 ## 🛠️ Tools & Setup
 
-- **Language**: C++17
-- **IDE**: Visual Studio Code / CLion
+- **Language**: Java 21
+- **IDE**: IntelliJ (Jetbrains)
 - **Compiler**: g++ with optimization flags
 - **Testing**: Custom test case runner
 
@@ -75,11 +33,6 @@ This repository chronicles my adventure through competitive programming, where I
 # Clone the repository
 git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
 cd YOUR_REPO_NAME
-
-# Compile and run a solution
-g++ -std=c++17 -O2 -o solution 800_Rated/4A_Watermelon.cpp
-./solution
-```
 
 ---
 
@@ -93,7 +46,7 @@ g++ -std=c++17 -O2 -o solution 800_Rated/4A_Watermelon.cpp
 - [ ] Number theory fundamentals
 
 ### 📅 Weekly Goals
-- **Week 1**: Complete 5 problems (800 rating) ✅ 1/5
+- **Week 1**: Complete 5 problems (800 rating)
 - **Week 2**: Complete 10 problems (800 rating)
 - **Week 3**: Introduction to 900-rated problems
 - **Week 4**: Master basic implementation patterns
