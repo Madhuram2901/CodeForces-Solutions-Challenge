@@ -1,0 +1,35 @@
+name: 🛠️ Update Codeforces Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # every day at 12:00 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 🔧 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      - name: 🧠 Run Codeforces Stats Script
+        run: python scripts/update_readme.py
+        env:
+          CF_USERNAME: patilmadhuram
+          
+      - name: 💾 Commit & Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add README.md
+          git commit -m '♻️ Update Codeforces stats'
+          git push
