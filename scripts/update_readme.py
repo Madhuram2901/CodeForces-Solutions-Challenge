@@ -2,15 +2,26 @@ import requests
 from datetime import datetime
 import os
 
-HANDLE = "patilmadhuram"  # ← Replace with your Codeforces handle
+HANDLE = os.getenv("CF_USERNAME", "patilmadhuram")
 README_FILE = "README.md"
 MAX_PROBLEMS = 5
 
 def fetch_recent_submissions(handle):
     url = f"https://codeforces.com/api/user.status?handle={handle}&from=1&count=20"
     response = requests.get(url)
-    submissions = response.json()["result"]
 
+    if response.status_code != 200:
+        print("❌ Failed to fetch data from Codeforces")
+        print(response.text)
+        return []
+
+    data = response.json()
+    if data.get("status") != "OK":
+        print("❌ API returned non-OK status")
+        print(data)
+        return []
+
+    submissions = data["result"]
     problems = []
     seen = set()
 
@@ -35,9 +46,9 @@ def update_readme(problems):
         content = f.read()
 
     start = content.find("## 📊 Last 5 Solved Problems")
-    end = content.find("---", start + 10)
+    end = content.find("---", start)
     if start == -1 or end == -1:
-        print("Section not found!")
+        print("❌ Section not found in README.md!")
         return
 
     table = "| # | Title | Rating | Verdict | Time |\n"
@@ -48,7 +59,7 @@ def update_readme(problems):
     new_content = content[:start] + "## 📊 Last 5 Solved Problems\n\n" + table + "\n" + content[end:]
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(new_content)
-    print("README updated.")
+    print("✅ README updated successfully.")
 
 if __name__ == "__main__":
     recent_problems = fetch_recent_submissions(HANDLE)
