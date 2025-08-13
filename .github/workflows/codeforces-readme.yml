@@ -44,7 +44,7 @@ jobs:
       run: |
         echo "Starting README update..."
         echo "Username: $CODEFORCES_USERNAME"
-        python update_readme.py "$CODEFORCES_USERNAME"
+        python scripts/update_readme.py "$CODEFORCES_USERNAME"
         echo "README update completed"
     
     - name: 📊 Check Changes
